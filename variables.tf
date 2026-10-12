@@ -1,42 +1,42 @@
 variable "instance_name" {
   type        = string
-  description = "Nome identificativo dell'istanza EC2 e delle risorse collegate"
+  description = "The identifying name for the EC2 instance and its related resources"
 }
 
 variable "instance_ami" {
   type        = string
-  description = "ID dell'AMI AWS da utilizzare per il sistema operativo"
+  description = "The AWS AMI ID to use for the operating system"
 }
 
 variable "instance_type" {
   type        = string
-  description = "Tipo di istanza EC2 (es. t3.micro)"
+  description = "The EC2 instance type size (e.g., t3.micro)"
   default     = "t3.micro"
 }
 
 variable "key_name" {
   type        = string
-  description = "Nome della chiave SSH AWS per l'accesso"
+  description = "The name of the AWS SSH Key Pair for secure access"
 }
 
 variable "subnet_id" {
   type        = string
-  description = "ID della Subnet AWS in cui posizionare l'istanza"
+  description = "The AWS Subnet ID where the instance will be deployed"
 }
 
 variable "security_group_ids" {
   type        = list(string)
-  description = "Lista di ID dei Security Group da associare all'istanza"
+  description = "List of AWS Security Group IDs to associate with the instance"
 }
 
 variable "root_volume_size" {
   type        = number
-  description = "Dimensione del disco principale (root) in GB"
+  description = "The size of the root block device volume in GB"
   default     = 8
 }
 
 variable "root_volume_type" {
   type        = string
-  description = "Tipo di volume per il disco principale (es. gp3)"
+  description = "The type of the root block device volume (e.g., gp3)"
   default     = "gp3"
 }

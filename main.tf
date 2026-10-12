@@ -1,4 +1,4 @@
-# Definisce l'istanza EC2 principale usando le variabili
+# Main EC2 Instance configuration using variables
 resource "aws_instance" "aws_marinastore" {
   ami                         = var.instance_ami
   instance_type               = var.instance_type
@@ -16,7 +16,7 @@ resource "aws_instance" "aws_marinastore" {
     http_endpoint               = "enabled"
     http_protocol_ipv6          = "disabled"
     http_put_response_hop_limit = 2
-    http_tokens                 = "required" # Configurazione sicura per i metadati
+    http_tokens                 = "required" # Secure IMDSv2 configuration
     instance_metadata_tags      = "disabled"
   }
 
@@ -30,7 +30,7 @@ resource "aws_instance" "aws_marinastore" {
   }
 }
 
-# Associa l'IP pubblico statico (Elastic IP) all'istanza sopra
+# Static Public IP (Elastic IP) associated with the EC2 Instance
 resource "aws_eip" "aws_marinastore_eip" {
   instance = aws_instance.aws_marinastore.id
   domain   = "vpc"
