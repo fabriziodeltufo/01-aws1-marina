@@ -1,0 +1,26 @@
+# Blocca l'intera cartella backup e tutto il suo contenuto (incluso import.tf)
+backup/
+
+# Blocca la cartella locale dove Terraform scarica i plugin dei provider
+.terraform/
+
+# Blocca i file di stato locali (contengono la mappa dell'infrastruttura e i segreti in chiaro)
+*.tfstate
+*.tfstate.*
+
+# Blocca TUTTI i file con i valori delle variabili (incluso il tuo terraform.tfvars)
+*.tfvars
+*.tfvars.json
+
+# Blocca i file di configurazione personali di Terraform CLI
+.terraformrc
+terraform.rc
+
+# Blocca eventuali file di log o file di crash in caso di errori
+crash.log
+crash.*.log
+*.log
+
+# Blocca i file di configurazione delle cartelle di macOS
+.DS_Store
+
